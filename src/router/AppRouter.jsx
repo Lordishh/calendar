@@ -3,15 +3,18 @@ import { LoginPage } from "../auth";
 import { CalendarPage } from "../calendar";
 
 export const AppRouter = () => {
-  const authStatus = "not-authenticated";
+  const authStatus = "autenticated"; // "not-authenticated";
 
   return (
     <Routes>
-      {authStatus === "not-authenticated" ? (
+      {authStatus === "not-authenticated"
+        ? (
         <Route path="/auth/*" element={<LoginPage />} />
-      ) : (
+          )
+        : (
         <Route path="/*" element={<CalendarPage />} />
-      )}
+          )
+      }
 
       <Route path="/*" element={<Navigate to="/auth/login" />} />
     </Routes>
