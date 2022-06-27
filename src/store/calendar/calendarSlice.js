@@ -3,6 +3,7 @@ import { addHours } from "date-fns";
 import { createSlice } from "@reduxjs/toolkit";
 
 const tempEvent = {
+  _id: new Date().getTime(),
   title: 'Aprende React',
   notes: 'React es un framework de JavaScript',
   start: new Date(),
@@ -23,10 +24,10 @@ export const calendarSlice = createSlice({
     activeEvent: null
   },
   reducers: {
-    increment: (state, /* action */) => {
-      state.counter += 1;
+    onSetActiveEvent: ( state, { payload }) => {
+      state.activeEvent = payload;
     },
   }
 });
 
-export const { increment } = calendarSlice.actions;
+export const { onSetActiveEvent } = calendarSlice.actions;
